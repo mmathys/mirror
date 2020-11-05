@@ -1,0 +1,36 @@
+$size: 30px;
+
+.vehicle-container {
+  display: flex;
+  flex-direction: row;
+  padding: 15px 0;
+}
+
+.vehicle {
+  border: 1px solid white;
+  color: white;
+  border-radius: 100%;
+  border-width: 3px;
+  height: $size;
+  width: $size;
+
+  &.light {
+    border-color: black;
+    color: black;
+  }
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 7px;
+  font-size: 0.4em;
+  font-weight: 600;
+
+  &:first-of-type {
+    margin-left: 0;
+  }
+}
+
+.title {
+  font-size: 0.8em;
+}
