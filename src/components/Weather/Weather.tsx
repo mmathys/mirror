@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import Chart from "chart.js"
 import "./Weather.scss"
+import moment from "moment"
 
 interface WeatherDay {
   currentTime: number
@@ -130,17 +131,18 @@ function Weather({ theme }: WeatherProps) {
 
   useEffect(() => {
     if (!data || !chart) return
-    let offset = 0
-    let day1 = data[0 + offset]
-    let day2 = data[1 + offset]
+    let day1 = data[0]
+    let day2 = data[1]
     if (!day1?.temperature || !day2?.temperature || !chart?.data.datasets) return
 
-    let temp = day1.temperature
-    temp.push(day2.temperature[0])
+    let currentHour = moment().hour()
+
+
+    let temp = day1.temperature.concat(day2.temperature).slice(currentHour, currentHour+25)
     let tempLabels = temp.map((el) => new Date(el[0]))
     let tempData = temp.map((el) => el[1])
 
-    let rain = day1.rainfall
+    let rain = day1.rainfall.concat(day2.rainfall).slice(currentHour, currentHour+25)
     rain.push(day2.rainfall[0])
     let rainData = rain.map((el) => el[1])
 
