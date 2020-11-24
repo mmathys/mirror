@@ -10,7 +10,7 @@ interface HackernewsProps {
   theme?: string
 }
 
-const url = "https://hacker-news.firebaseio.com/v0/beststories.json?print=pretty"
+const url = "https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty"
 const updateInterval = 10 * 60 * 1000
 
 function Hackernews(props: HackernewsProps) {
