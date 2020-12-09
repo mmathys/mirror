@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import Weather from "./components/Weather/Weather"
 import Publibike from "./components/Publibike/Publibike"
 import Hackernews from "./components/Hackernews/Hackernews"
+import 中文 from "./components/中文/中文"
 
 function App() {
   const prod = true
@@ -24,6 +25,7 @@ function App() {
               <Weather></Weather>
               <Hackernews></Hackernews>
               <Publibike></Publibike>
+              <中文></中文>
             </div>
           </div>
         </Route>
@@ -37,6 +39,9 @@ function App() {
         </Route>
         <Route path="/hn">
           <Hackernews theme="light"></Hackernews>
+        </Route>
+        <Route path="/中文">
+          <中文 theme="light"></中文>
         </Route>
       </Switch>
     </Router>
