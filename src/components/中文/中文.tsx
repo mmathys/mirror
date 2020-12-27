@@ -47,8 +47,8 @@ function 中文(props: 中文Props) {
   }, [])
 
   const divs = () =>
-    data.chinese?.map(({ character, pinyin }) => (
-      <div>
+    data.chinese?.map(({ character, pinyin }, i) => (
+      <div key={i}>
         <p>{pinyin}</p>
         <p className="character">{character}</p>
       </div>

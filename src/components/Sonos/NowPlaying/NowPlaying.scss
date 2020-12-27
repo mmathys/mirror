@@ -1,0 +1,20 @@
+.nowPlaying {
+  display: flex;
+
+  img {
+    height: 150px;
+  }
+
+  &__information {
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+
+    .track {
+      font-size: 18px;
+    }
+    .artist {
+      font-size: 15px;
+    }
+  }
+}
