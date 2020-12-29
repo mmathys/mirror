@@ -1,20 +1,42 @@
-.nowPlaying {
-  display: flex;
+.now-playing {
+  color: white;
+  &.light {
+    color: black;
+  }
+}
 
+.sonos-entry {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  &:last-child {
+    margin-bottom: 40px;
+  }
+}
+
+.track-information {
+  display: flex;
+  align-items: center;
   img {
-    height: 150px;
+    height: 75px;
   }
 
-  &__information {
+  .data {
     display: flex;
     flex-direction: column;
     margin: 0 10px;
 
-    .track {
+    p:first-child {
       font-size: 18px;
     }
-    .artist {
+    p:nth-child(2) {
       font-size: 15px;
     }
   }
+}
+
+.room-information {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
 }

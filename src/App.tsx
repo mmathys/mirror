@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-pascal-case */
-import React, { Suspense } from "react"
+import React from "react"
 import "./App.scss"
 import Clock from "./components/Clock/Clock"
 import Hanzi from "./components/Hanzi/Hanzi"
@@ -29,8 +29,8 @@ function App() {
                 <Date></Date>
                 <Weather></Weather>
                 <Hackernews></Hackernews>
+                <Sonos></Sonos>
                 <Publibike></Publibike>
-                <中文></中文>
               </div>
             </div>
           </Route>

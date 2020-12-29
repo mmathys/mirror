@@ -1,5 +1,4 @@
-import React, { useState, useEffect, Suspense } from "react"
-import { useDatabase, useFirestoreDocData } from "reactfire"
+import React, { Suspense } from "react"
 import NowPlaying from "./NowPlaying/NowPlaying"
 import "./Sonos.scss"
 
@@ -9,13 +8,10 @@ interface SonosProps {
 
 function Sonos(props: SonosProps) {
   return (
-    <div>
-      <div className={`${props.theme === "light" && " light"}`}>
-        <p>Sonos</p>
-        <Suspense fallback="Loading...">
-          <NowPlaying></NowPlaying>
-        </Suspense>
-      </div>
+    <div className={`sonos ${props.theme === "light" ? "light" : ""}`}>
+      <Suspense fallback={<p className="loading">Loading...</p>}>
+        <NowPlaying theme={props.theme}></NowPlaying>
+      </Suspense>
     </div>
   )
 }
