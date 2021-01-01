@@ -6,7 +6,8 @@ interface NowPlaying {
   artist: string
   track: string
   image: string
-  room?: string
+  displayName?: string
+  playing: boolean
 }
 
 interface NowPlayingProps {
@@ -20,12 +21,12 @@ function key(np: NowPlaying) {
 
 function NowPlaying(props: NowPlayingProps) {
   const ref = useDatabase().ref("nowPlaying")
-  const { data } = useDatabaseObjectData<NowPlaying[]>(ref)
+  const { data } = useDatabaseObjectData<{ [room: string]: NowPlaying }>(ref)
 
   let content = Object.keys(data)
     .filter((key) => key !== "NO_ID_FIELD")
-    .map((i) => parseInt(i))
-    .map((i) => data[i])
+    .map((i) => ({ displayName: i, ...data[i] }))
+    .filter((np) => np.playing)
     .map((np: NowPlaying) => (
       <div key={key(np)} className="sonos-entry">
         <div className="track-information">
@@ -36,7 +37,7 @@ function NowPlaying(props: NowPlayingProps) {
           </div>
         </div>
         <div className="room-information">
-          <p>{np.room}</p>
+          <p>{np.displayName}</p>
         </div>
       </div>
     ))
